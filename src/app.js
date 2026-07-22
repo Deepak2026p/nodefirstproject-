@@ -17,7 +17,9 @@ app.use(cookieParser());
 
 //import routes
 import userRoutes from "./routes/user.routes.js";
+import captchaRoutes from "./routes/captcha.routes.js"
 //rout declaration
 app.use("/api/v1/users", userRoutes);
+app.use("/api/v1/captcha", captchaRoutes)
 
 export default app;
