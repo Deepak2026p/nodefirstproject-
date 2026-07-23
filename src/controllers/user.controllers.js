@@ -103,7 +103,7 @@ const loginUser = asyncHandler(async (req, res) => {
     if (!user) {
         throw new ApiError(404, "User not found")
     }
- 
+
     const isPasswordValid = await user.isPasswordCorrect(password)
     if (!isPasswordValid) {
         throw new ApiError(401, "Invalid User Credentials")
@@ -153,10 +153,10 @@ const refreshAccessToken = asyncHandler(async (req, res) => {
 
     const user = await User.findById(decodedToken?._id)
     if (!user) {
-        throw new ApiError('401', 'Invalid refresh token')
+        throw new ApiError(401, 'Invalid refresh token')
     }
     if (incomingRefreshToken !== user?.refreshToken) {
-        throw new ApiError("401", "Refresh Token is Expired or used")
+        throw new ApiError(401, "Refresh Token is Expired or used")
     }
 
     const options = {

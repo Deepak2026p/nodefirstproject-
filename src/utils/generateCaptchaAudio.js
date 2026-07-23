@@ -1,6 +1,4 @@
 import { spawn } from 'child_process'
-// import { resolve } from 'dns'
-// import { text } from 'stream/consumers'
 
 const spellOut = (text) => text.split('').join("...");
 
